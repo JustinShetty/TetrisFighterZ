@@ -1,5 +1,8 @@
 extends Node
 
+export (PackedScene) var StartPauseMenu
+
+var menu
 
 func _ready():
 	$Player.start($SpawnLoc.position)

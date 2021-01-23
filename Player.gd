@@ -26,7 +26,7 @@ func _ready():
 	for _i in range(LR_BUFFER_SIZE):
 		x_buffer.append(0)
 	hide()
-	
+
 func set_lives(n):
 	lives = n
 	emit_signal('lives_updated')
@@ -36,6 +36,10 @@ func start(pos):
 	position = spawn_loc
 	set_lives(MAX_LIVES)
 	show()
+	
+func _on_VisibilityNotifier2D_screen_exited():
+	set_lives(lives - 1)
+	position = spawn_loc
 
 func _input(event):
 	if event.is_action_pressed('jump') and jumps_remaining > 0:
@@ -95,11 +99,5 @@ func _process(delta):
 
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
-	# reset available jumps on landing (checking is_on_floor messes with initial jump)
-	if velocity.y == 0:
+	if is_on_floor():
 		jumps_remaining = max(jumps_remaining, MAX_JUMPS)
-
-
-func _on_VisibilityNotifier2D_screen_exited():
-	set_lives(lives - 1)
-	position = spawn_loc
