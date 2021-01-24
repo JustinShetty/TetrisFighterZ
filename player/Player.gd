@@ -24,10 +24,13 @@ var lives
 
 var player_index = null
 
+var animation_state_machine
+
 func local_action_name(a: String) -> String:
 	return a + '_' + str(player_index)
 
 func _ready():
+	animation_state_machine = $AnimationTree.get('parameters/playback')
 	for _i in range(LR_BUFFER_SIZE):
 		x_buffer.append(0)
 	hide()
@@ -51,16 +54,17 @@ func _input(event):
 	if event.is_action_pressed(local_action_name('jump')) and jumps_remaining > 0:
 		velocity.y = -JUMP_IMPULSE
 		jumps_remaining -= 1
-	elif event.is_action_pressed(local_action_name('punch')):
-		print('punch')
+		get_tree().set_input_as_handled()
+	elif event.is_action_pressed(local_action_name('attack')):
+		get_tree().set_input_as_handled()
 
 var input_vector = Vector2.ZERO
 
 func process_input() -> void:
-	var input_suffix = '_' + str(player_index)
 	input_vector.x = Input.get_action_strength(local_action_name('move_right'))
 	input_vector.x -= Input.get_action_strength(local_action_name('move_left'))
 	input_vector.y = Input.get_action_strength(local_action_name('move_down'))
+	# print(str(player_index) + '_' + str(input_vector))
 
 	x_buffer.append(input_vector.x)
 	x_buffer.pop_front()
@@ -78,18 +82,24 @@ func process_input() -> void:
 		ms.IDLE:
 			if dash_ok:
 				move_state = ms.DASH
+				animation_state_machine.travel('run_cycle')
 			elif latest_is_light or latest_is_heavy:
 				move_state = ms.WALK
+				animation_state_machine.travel('walk_cycle')
 		ms.WALK:
 			if dash_ok:
 				move_state = ms.DASH
+				animation_state_machine.travel('run_cycle')
 			elif latest_is_centered:
 				move_state = ms.IDLE
+				animation_state_machine.travel('idle')
 		ms.DASH:
 			if latest_is_light:
 				move_state = ms.WALK
+				animation_state_machine.travel('walk_cycle')
 			elif latest_is_centered:
 				move_state = ms.IDLE
+				animation_state_machine.travel('idle')
 
 	emit_signal('updated_move_state')
 	

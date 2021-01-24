@@ -45,9 +45,9 @@ shape = SubResource( 2 )
 position = Vector2( 1379.52, 507.48 )
 shape = SubResource( 3 )
 
-[node name="SpawnLoc" type="Position2D" parent="."]
+[node name="SpawnLoc0" type="Position2D" parent="."]
 position = Vector2( 708.699, 425.519 )
 
-[node name="SpawnLoc2" type="Position2D" parent="."]
+[node name="SpawnLoc1" type="Position2D" parent="."]
 position = Vector2( 949.926, 422.522 )
 [connection signal="reset" from="UserInterface/UserInterface" to="." method="reset_signal_handler"]

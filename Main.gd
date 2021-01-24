@@ -2,17 +2,19 @@ extends Node
 
 const PlayerScene = preload('res://player/Player.tscn')
 
+var p0 = null
 var p1 = null
-var p2 = null
 
 func _ready():
-	p1 = PlayerScene.instance()
-	add_child(p1)
-	p1.start(1, $SpawnLoc.position)
-	p2 = PlayerScene.instance()
-	add_child(p2)
-	p2.start(2, $SpawnLoc2.position)
-
+	p0 = PlayerScene.instance()
+	add_child(p0)
+	p0.start(0, $SpawnLoc0.position)
+	# p1 = PlayerScene.instance()
+	# add_child(p1)
+	# p1.start(1, $SpawnLoc1.position)
+	
+	# for id in Input.get_connected_joypads():
+	#	print(Input.get_joy_name(id))
 
 func _process(_delta):
 	pass
