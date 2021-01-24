@@ -1,11 +1,18 @@
 extends Node
 
-export (PackedScene) var StartPauseMenu
+const PlayerScene = preload('res://player/Player.tscn')
 
-var menu
+var p1 = null
+var p2 = null
 
 func _ready():
-	$Player.start($SpawnLoc.position)
+	p1 = PlayerScene.instance()
+	add_child(p1)
+	p1.start(1, $SpawnLoc.position)
+	p2 = PlayerScene.instance()
+	add_child(p2)
+	p2.start(2, $SpawnLoc2.position)
+
 
 func _process(_delta):
 	pass

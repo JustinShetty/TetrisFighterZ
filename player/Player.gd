@@ -22,6 +22,11 @@ const MAX_LIVES = 3
 var spawn_loc
 var lives
 
+var player_index = null
+
+func local_action_name(a: String) -> String:
+	return a + '_' + str(player_index)
+
 func _ready():
 	for _i in range(LR_BUFFER_SIZE):
 		x_buffer.append(0)
@@ -31,7 +36,8 @@ func set_lives(n):
 	lives = n
 	emit_signal('lives_updated')
 	
-func start(pos):
+func start(idx, pos):
+	player_index = idx
 	spawn_loc = pos
 	position = spawn_loc
 	set_lives(MAX_LIVES)
@@ -42,17 +48,19 @@ func _on_VisibilityNotifier2D_screen_exited():
 	position = spawn_loc
 
 func _input(event):
-	if event.is_action_pressed('jump') and jumps_remaining > 0:
+	if event.is_action_pressed(local_action_name('jump')) and jumps_remaining > 0:
 		velocity.y = -JUMP_IMPULSE
 		jumps_remaining -= 1
-	elif event.is_action_pressed('punch'):
+	elif event.is_action_pressed(local_action_name('punch')):
 		print('punch')
 
 var input_vector = Vector2.ZERO
 
-func process_input():
-	input_vector.x = Input.get_action_strength('move_right') - Input.get_action_strength('move_left')
-	input_vector.y = Input.get_action_strength('move_down') # - Input.get_action_strength('move_up')
+func process_input() -> void:
+	var input_suffix = '_' + str(player_index)
+	input_vector.x = Input.get_action_strength(local_action_name('move_right'))
+	input_vector.x -= Input.get_action_strength(local_action_name('move_left'))
+	input_vector.y = Input.get_action_strength(local_action_name('move_down'))
 
 	x_buffer.append(input_vector.x)
 	x_buffer.pop_front()
@@ -84,11 +92,10 @@ func process_input():
 				move_state = ms.IDLE
 
 	emit_signal('updated_move_state')
-	return input_vector
-
-func _physics_process(_delta):
-	process_input()
 	
+func _physics_process(_delta):
+	process_input()	
+
 func _process(delta):
 	if move_state == ms.DASH:
 		velocity.x = input_vector.normalized().x * DASH_SPEED
