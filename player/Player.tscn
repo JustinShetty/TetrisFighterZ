@@ -12,7 +12,7 @@
 extents = Vector2( 76.7126, 46.6905 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "Crouch"
+resource_name = "CROUCH"
 length = 0.0833333
 step = 0.0166667
 tracks/0/type = "value"
@@ -50,6 +50,279 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 2 ), ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "DASH"
+length = 0.500001
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.183334, 0.333334, 0.500001 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.5, -2.5 ), Vector2( 2, -2.5 ), Vector2( 2, -2.5 ), Vector2( -0.5, -2.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.183334, 0.333334, 0.500001 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 6.84982, 6.84982, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.183334, 0.333334 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.485, 0.485 ), Vector2( 0.485, 0.485 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "DASH_END"
+length = 0.1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0666668, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -0.5, -2.5 ), Vector2( 0, -4 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0666668, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 8.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0666667, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.48, 0.5 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Sprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.0666667, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "DASH_START"
+length = 0.0500001
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.0500001 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( -0.5, -4.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.05 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 4.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0166667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.495, 0.495 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Sprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0500001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 7 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "GETUP"
+length = 0.0833333
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.792786, 16.5329 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.45, 0.4 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0833333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "IDLE"
+length = 0.833333
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.316667, 0.516667, 0.816667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.890899, 0.890903 ), Vector2( 0.890899, 0.890903 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.316667, 0.516667, 0.816667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.49, 0.49 ), Vector2( 0.49, 0.49 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "PUNCH"
+length = 0.333333
+loop = true
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.116667, 0.15, 0.216667 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -6.35678 ), Vector2( 0, -5.37881 ), Vector2( 11.1244, -3.42288 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.116667, 0.15, 0.216667, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -0.463779, -7.00662, 9.9341, 9.9341 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.116667, 0.15, 0.216667, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.48, 0.5 ), Vector2( 0.52, 0.5 ), Vector2( 0.52, 0.5 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Sprite:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0166667, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -106,277 +379,8 @@ tracks/3/keys = {
 "values": [ ExtResource( 2 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "dash_end"
-length = 0.1
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprite:position")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0666668, 0.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -0.5, -2.5 ), Vector2( 0, -4 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0666668, 0.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 8.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.0666667, 0.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.48, 0.5 ), Vector2( 0.5, 0.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Sprite:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.0666667, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 2 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "dash_start"
-length = 0.0500001
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprite:position")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0166667, 0.0500001 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( -0.5, -4.5 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0166667, 0.05 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 4.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.0166667 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.495, 0.495 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Sprite:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.0500001 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 7 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 0.0833333
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0833333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.792786, 16.5329 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.0833333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.45, 0.4 ), Vector2( 0.5, 0.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprite:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.0833333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 2 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-length = 0.833333
-loop = true
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprite:position")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.316667, 0.516667, 0.816667 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0.890899, 0.890903 ), Vector2( 0.890899, 0.890903 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:scale")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.316667, 0.516667, 0.816667 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.49, 0.49 ), Vector2( 0.49, 0.49 ), Vector2( 0.5, 0.5 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-length = 0.333333
-loop = true
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.116667, 0.15, 0.216667 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -6.35678 ), Vector2( 0, -5.37881 ), Vector2( 11.1244, -3.42288 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.116667, 0.15, 0.216667, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -0.463779, -7.00662, 9.9341, 9.9341 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.116667, 0.15, 0.216667, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.48, 0.5 ), Vector2( 0.52, 0.5 ), Vector2( 0.52, 0.5 ), Vector2( 0.5, 0.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Body/Sprite:texture")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.0166667, 0.15, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "run_cycle"
-length = 0.500001
-loop = true
-step = 0.0166667
-tracks/0/type = "value"
-tracks/0/path = NodePath("Body/Sprite:position")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.183334, 0.333334, 0.500001 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -0.5, -2.5 ), Vector2( 2, -2.5 ), Vector2( 2, -2.5 ), Vector2( -0.5, -2.5 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.183334, 0.333334, 0.500001 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 6.84982, 6.84982, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Body/Sprite:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.183334, 0.333334 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.485, 0.485 ), Vector2( 0.485, 0.485 ) ]
-}
-
 [sub_resource type="Animation" id=10]
+resource_name = "WALK"
 length = 0.500001
 loop = true
 step = 0.0166667
@@ -418,6 +422,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=11]
+resource_name = "WALK_END"
 length = 0.0500001
 step = 0.0166667
 tracks/0/type = "value"
@@ -472,114 +477,113 @@ tracks/3/keys = {
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Crouch"
 
-[sub_resource type="AnimationNodeAnimation" id=39]
-animation = "SETUP"
-
-[sub_resource type="AnimationNodeAnimation" id=13]
-animation = "dash_end"
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "DASH"
 
 [sub_resource type="AnimationNodeAnimation" id=14]
-animation = "dash_start"
+animation = "DASH_END"
 
 [sub_resource type="AnimationNodeAnimation" id=15]
-animation = "getup"
+animation = "DASH_START"
 
 [sub_resource type="AnimationNodeAnimation" id=16]
-animation = "idle"
+animation = "GETUP"
 
 [sub_resource type="AnimationNodeAnimation" id=17]
-animation = "idle"
+animation = "IDLE"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
-animation = "punch"
+[sub_resource type="AnimationNodeAnimation" id=41]
+animation = "IDLE"
 
 [sub_resource type="AnimationNodeAnimation" id=19]
-animation = "run_cycle"
+animation = "PUNCH"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
-animation = "walk_cycle"
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "SETUP"
 
 [sub_resource type="AnimationNodeAnimation" id=21]
-animation = "walk_end"
+animation = "WALK"
 
 [sub_resource type="AnimationNodeAnimation" id=22]
+animation = "WALK_END"
+
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "walk_start"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-switch_mode = 2
-auto_advance = true
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 switch_mode = 2
 auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
-switch_mode = 2
-auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=37]
-states/Crouch/node = SubResource( 12 )
-states/Crouch/position = Vector2( 356, 79 )
-states/SETUP/node = SubResource( 39 )
-states/SETUP/position = Vector2( 68, 52 )
-states/dash_end/node = SubResource( 13 )
-states/dash_end/position = Vector2( 829, 263 )
-states/dash_start/node = SubResource( 14 )
-states/dash_start/position = Vector2( 749, 115 )
-states/getup/node = SubResource( 15 )
-states/getup/position = Vector2( 572, 115 )
-states/idle/node = SubResource( 17 )
-states/idle/position = Vector2( 520, 204 )
-"states/idle 2/node" = SubResource( 16 )
-"states/idle 2/position" = Vector2( 541, 38 )
-states/punch/node = SubResource( 18 )
-states/punch/position = Vector2( 281, 204 )
-states/run_cycle/node = SubResource( 19 )
-states/run_cycle/position = Vector2( 862, 188 )
-states/walk_cycle/node = SubResource( 20 )
-states/walk_cycle/position = Vector2( 601, 343 )
-states/walk_end/node = SubResource( 21 )
-states/walk_end/position = Vector2( 417, 331 )
-states/walk_start/node = SubResource( 22 )
-states/walk_start/position = Vector2( 631, 263 )
-transitions = [ "idle", "Crouch", SubResource( 23 ), "getup", "idle", SubResource( 24 ), "idle", "punch", SubResource( 25 ), "punch", "idle", SubResource( 26 ), "Crouch", "idle 2", SubResource( 27 ), "idle 2", "getup", SubResource( 28 ), "idle", "walk_start", SubResource( 29 ), "walk_start", "walk_cycle", SubResource( 30 ), "walk_cycle", "walk_end", SubResource( 31 ), "walk_end", "idle", SubResource( 32 ), "idle", "dash_start", SubResource( 33 ), "dash_start", "run_cycle", SubResource( 34 ), "run_cycle", "dash_end", SubResource( 35 ), "dash_end", "idle", SubResource( 36 ), "SETUP", "idle", SubResource( 40 ) ]
-start_node = "SETUP"
-graph_offset = Vector2( -183, -49 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=38]
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=46]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=39]
+states/CROUCH/node = SubResource( 12 )
+states/CROUCH/position = Vector2( -30, 72 )
+states/DASH/node = SubResource( 20 )
+states/DASH/position = Vector2( 913, 351 )
+states/DASH_END/node = SubResource( 14 )
+states/DASH_END/position = Vector2( 736, 351 )
+states/DASH_START/node = SubResource( 15 )
+states/DASH_START/position = Vector2( 913, 266 )
+states/GETUP/node = SubResource( 16 )
+states/GETUP/position = Vector2( 336, 72 )
+states/IDLE/node = SubResource( 41 )
+states/IDLE/position = Vector2( 520, 204 )
+"states/IDLE 2/node" = SubResource( 17 )
+"states/IDLE 2/position" = Vector2( 166, 72 )
+states/PUNCH/node = SubResource( 19 )
+states/PUNCH/position = Vector2( 246, 204 )
+states/SETUP/node = SubResource( 13 )
+states/SETUP/position = Vector2( 520, 124 )
+states/WALK/node = SubResource( 21 )
+states/WALK/position = Vector2( 289, 306 )
+states/WALK_END/node = SubResource( 22 )
+states/WALK_END/position = Vector2( 47, 306 )
+states/WALK_START/node = SubResource( 23 )
+states/WALK_START/position = Vector2( 520, 306 )
+transitions = [ "CROUCH", "IDLE 2", SubResource( 28 ), "IDLE 2", "GETUP", SubResource( 29 ), "WALK_START", "WALK", SubResource( 31 ), "WALK", "WALK_END", SubResource( 32 ), "DASH_START", "DASH", SubResource( 35 ), "DASH", "DASH_END", SubResource( 36 ), "SETUP", "IDLE", SubResource( 42 ), "IDLE", "PUNCH", SubResource( 43 ), "PUNCH", "IDLE", SubResource( 44 ), "IDLE", "CROUCH", SubResource( 45 ), "GETUP", "IDLE", SubResource( 46 ), "IDLE", "WALK_START", SubResource( 47 ), "WALK_END", "IDLE", SubResource( 48 ), "IDLE", "DASH_START", SubResource( 49 ), "DASH_END", "IDLE", SubResource( 50 ) ]
+start_node = "SETUP"
+graph_offset = Vector2( -201, -13 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=40]
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2147483649
@@ -606,20 +610,20 @@ position = Vector2( 1.05948, 0.264876 )
 scale = Vector2( 2.80109, 2.7746 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Crouch = SubResource( 2 )
+anims/CROUCH = SubResource( 2 )
+anims/DASH = SubResource( 9 )
+anims/DASH_END = SubResource( 4 )
+anims/DASH_START = SubResource( 5 )
+anims/GETUP = SubResource( 6 )
+anims/IDLE = SubResource( 7 )
+anims/PUNCH = SubResource( 8 )
 anims/SETUP = SubResource( 3 )
-anims/dash_end = SubResource( 4 )
-anims/dash_start = SubResource( 5 )
-anims/getup = SubResource( 6 )
-anims/idle = SubResource( 7 )
-anims/punch = SubResource( 8 )
-anims/run_cycle = SubResource( 9 )
-anims/walk_cycle = SubResource( 10 )
-anims/walk_end = SubResource( 11 )
+anims/WALK = SubResource( 10 )
+anims/WALK_END = SubResource( 11 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 37 )
+tree_root = SubResource( 39 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 38 )
+parameters/playback = SubResource( 40 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
