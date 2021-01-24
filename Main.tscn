@@ -51,5 +51,6 @@ shape = SubResource( 3 )
 
 [node name="SpawnLoc" type="Position2D" parent="."]
 position = Vector2( 708.699, 425.519 )
+[connection signal="reset" from="UserInterface/UserInterface" to="." method="reset_signal_handler"]
 [connection signal="lives_updated" from="Player" to="." method="player_lives_updated"]
 [connection signal="updated_move_state" from="Player" to="." method="_on_Player_updated_move_state"]
