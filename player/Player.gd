@@ -54,9 +54,8 @@ func _input(event):
 	if event.is_action_pressed(local_action_name('jump')) and jumps_remaining > 0:
 		velocity.y = -JUMP_IMPULSE
 		jumps_remaining -= 1
-		get_tree().set_input_as_handled()
 	elif event.is_action_pressed(local_action_name('attack')):
-		get_tree().set_input_as_handled()
+		animation_state_machine.travel('punch')
 
 var input_vector = Vector2.ZERO
 
@@ -120,6 +119,8 @@ func _process(delta):
 	velocity.y += effective_gravity * delta
 
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+	$Body/Sprite.flip_h = velocity.x < 0
 	
 	if is_on_floor():
 		jumps_remaining = max(jumps_remaining, MAX_JUMPS)
