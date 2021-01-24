@@ -7,11 +7,11 @@ var velocity = Vector2.ZERO
 const JUMP_IMPULSE = 1000
 const GRAVITY = 2000
 
-var LR_BUFFER_SIZE = 4
+var LR_BUFFER_SIZE = 3
 var x_buffer = []
 const SPEED = 350
 const DASH_SPEED = 700
-const HARD_INP_THRESHOLD = 0.6
+const HARD_INP_THRESHOLD = 0.7
 
 enum ms{IDLE, WALK, DASH}
 var move_state = ms.IDLE
@@ -48,8 +48,9 @@ func _input(event):
 	elif event.is_action_pressed('punch'):
 		print('punch')
 
+var input_vector = Vector2.ZERO
+
 func process_input():
-	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength('move_right') - Input.get_action_strength('move_left')
 	input_vector.y = Input.get_action_strength('move_down') # - Input.get_action_strength('move_up')
 
@@ -85,11 +86,10 @@ func process_input():
 	emit_signal('updated_move_state')
 	return input_vector
 
-
+func _physics_process(_delta):
+	process_input()
+	
 func _process(delta):
-	print(delta)
-	var input_vector = process_input()
-
 	if move_state == ms.DASH:
 		velocity.x = input_vector.normalized().x * DASH_SPEED
 	elif move_state == ms.WALK:

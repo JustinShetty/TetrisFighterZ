@@ -16,4 +16,4 @@ func set_paused(value: bool) -> void:
 	pause_overlay.visible = value
 	
 func _process(_delta) -> void:
-	pass
+	$FpsLabel.text = str(Engine.get_frames_per_second())
