@@ -2,6 +2,8 @@ extends Node
 
 export (PackedScene) var StartPauseMenu
 
+onready var iface = $UserInterface.get_node('UserInterface')
+
 var menu
 
 func _ready():
@@ -11,7 +13,6 @@ func _process(_delta):
 	pass
 
 func new_game():
-	print('new game')
 	get_tree().reload_current_scene()
 
 func _input(event):
@@ -19,7 +20,7 @@ func _input(event):
 		new_game()
 
 func player_lives_updated():
-	$LivesLabel.text = str($Player.lives)
+	iface.get_node('LivesLabel').text = str($Player.lives)
 	if $Player.lives == 0:
 		new_game()
 
@@ -31,4 +32,4 @@ func _on_Player_updated_move_state():
 		state_str = 'WALK'
 	elif $Player.move_state == $Player.ms.DASH:
 		state_str = 'DASH'
-	$MoveStateLabel.text = state_str
+	iface.get_node('MoveStateLabel').text = state_str

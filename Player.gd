@@ -15,7 +15,7 @@ const HARD_INP_THRESHOLD = 0.6
 
 enum ms{IDLE, WALK, DASH}
 var move_state = ms.IDLE
-const MAX_JUMPS = 1
+const MAX_JUMPS = 2
 var jumps_remaining = MAX_JUMPS
 
 const MAX_LIVES = 3
@@ -45,6 +45,8 @@ func _input(event):
 	if event.is_action_pressed('jump') and jumps_remaining > 0:
 		velocity.y = -JUMP_IMPULSE
 		jumps_remaining -= 1
+	elif event.is_action_pressed('punch'):
+		print('punch')
 
 func process_input():
 	var input_vector = Vector2.ZERO
@@ -85,6 +87,7 @@ func process_input():
 
 
 func _process(delta):
+	print(delta)
 	var input_vector = process_input()
 
 	if move_state == ms.DASH:
@@ -94,10 +97,14 @@ func _process(delta):
 	else:
 		velocity.x -= velocity.x * 0.2
 
-	var effective_gravity = GRAVITY * (1 + 2 * input_vector.y)
+	var effective_gravity = GRAVITY
+	if velocity.y > 0:
+		effective_gravity += GRAVITY * 3 * input_vector.y
 	velocity.y += effective_gravity * delta
 
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
 	if is_on_floor():
 		jumps_remaining = max(jumps_remaining, MAX_JUMPS)
+	elif jumps_remaining == MAX_JUMPS:
+		jumps_remaining -= 1
