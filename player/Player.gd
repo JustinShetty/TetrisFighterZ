@@ -70,9 +70,11 @@ func _input(event):
 	elif event.is_action_pressed(local_action_name('attack')):
 		animation_state_machine.travel('punch')
 
-func set_state_and_animation(state):
-	pstate = state
-	animation_state_machine.travel(state_to_str[state])
+func set_state_and_animation(next_state):
+	if pstate:
+		print(state_to_str[pstate], ' -> ', state_to_str[next_state])
+	pstate = next_state
+	animation_state_machine.travel(state_to_str[next_state])
 
 var input_vector = Vector2.ZERO
 func process_input() -> void:
@@ -95,23 +97,28 @@ func process_input() -> void:
 	var latest_is_heavy = abs(latest) >= HEAVY_INP_THRESHOLD
 	
 	var dash_ok = earliest_is_centered and latest_is_heavy and is_on_floor()
-
+	
+	var next_state = pstate
 	match pstate:
 		states.IDLE:
 			if dash_ok:
-				set_state_and_animation(states.DASH)
+				next_state = states.DASH
 			elif latest_is_light or latest_is_heavy:
-				set_state_and_animation(states.WALK)
+				next_state = states.WALK
 		states.WALK:
 			if dash_ok:
-				set_state_and_animation(states.DASH)
+				next_state = states.DASH
 		states.DASH:
 			if latest_is_light:
-				set_state_and_animation(states.WALK)
+				next_state = states.WALK
 		_:
 			print('unknown current state')
+	
 	if latest_is_centered:
-		set_state_and_animation(states.IDLE)
+		next_state = states.IDLE
+		
+	if next_state != pstate:
+		set_state_and_animation(next_state)
 	
 func _physics_process(_delta):
 	process_input()	
