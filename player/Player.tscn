@@ -170,10 +170,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.0166667 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.0166667, 0.0500001 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( -0.5, -4.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Body/Sprite:rotation_degrees")
@@ -472,114 +472,114 @@ tracks/3/keys = {
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Crouch"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=39]
 animation = "SETUP"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "dash_end"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "dash_start"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "getup"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle"
 
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "idle"
 
 [sub_resource type="AnimationNodeAnimation" id=18]
-animation = "idle"
-
-[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "punch"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "run_cycle"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "walk_cycle"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "walk_end"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "walk_start"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
 switch_mode = 2
 auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=34]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=39]
+[sub_resource type="AnimationNodeStateMachine" id=37]
 states/Crouch/node = SubResource( 12 )
 states/Crouch/position = Vector2( 356, 79 )
-states/SETUP/node = SubResource( 13 )
+states/SETUP/node = SubResource( 39 )
 states/SETUP/position = Vector2( 68, 52 )
-states/dash_end/node = SubResource( 14 )
+states/dash_end/node = SubResource( 13 )
 states/dash_end/position = Vector2( 829, 263 )
-states/dash_start/node = SubResource( 15 )
+states/dash_start/node = SubResource( 14 )
 states/dash_start/position = Vector2( 749, 115 )
-states/getup/node = SubResource( 16 )
+states/getup/node = SubResource( 15 )
 states/getup/position = Vector2( 572, 115 )
-states/idle/node = SubResource( 18 )
+states/idle/node = SubResource( 17 )
 states/idle/position = Vector2( 520, 204 )
-"states/idle 2/node" = SubResource( 17 )
+"states/idle 2/node" = SubResource( 16 )
 "states/idle 2/position" = Vector2( 541, 38 )
-states/punch/node = SubResource( 19 )
+states/punch/node = SubResource( 18 )
 states/punch/position = Vector2( 281, 204 )
-states/run_cycle/node = SubResource( 20 )
+states/run_cycle/node = SubResource( 19 )
 states/run_cycle/position = Vector2( 862, 188 )
-states/walk_cycle/node = SubResource( 21 )
+states/walk_cycle/node = SubResource( 20 )
 states/walk_cycle/position = Vector2( 601, 343 )
-states/walk_end/node = SubResource( 22 )
+states/walk_end/node = SubResource( 21 )
 states/walk_end/position = Vector2( 417, 331 )
-states/walk_start/node = SubResource( 23 )
+states/walk_start/node = SubResource( 22 )
 states/walk_start/position = Vector2( 631, 263 )
-transitions = [ "idle", "Crouch", SubResource( 24 ), "getup", "idle", SubResource( 25 ), "idle", "punch", SubResource( 26 ), "punch", "idle", SubResource( 27 ), "Crouch", "idle 2", SubResource( 28 ), "idle 2", "getup", SubResource( 29 ), "idle", "walk_start", SubResource( 30 ), "walk_start", "walk_cycle", SubResource( 31 ), "walk_cycle", "walk_end", SubResource( 32 ), "walk_end", "idle", SubResource( 33 ), "idle", "dash_start", SubResource( 34 ), "dash_start", "run_cycle", SubResource( 35 ), "run_cycle", "dash_end", SubResource( 36 ), "dash_end", "idle", SubResource( 37 ), "SETUP", "idle", SubResource( 38 ) ]
+transitions = [ "idle", "Crouch", SubResource( 23 ), "getup", "idle", SubResource( 24 ), "idle", "punch", SubResource( 25 ), "punch", "idle", SubResource( 26 ), "Crouch", "idle 2", SubResource( 27 ), "idle 2", "getup", SubResource( 28 ), "idle", "walk_start", SubResource( 29 ), "walk_start", "walk_cycle", SubResource( 30 ), "walk_cycle", "walk_end", SubResource( 31 ), "walk_end", "idle", SubResource( 32 ), "idle", "dash_start", SubResource( 33 ), "dash_start", "run_cycle", SubResource( 34 ), "run_cycle", "dash_end", SubResource( 35 ), "dash_end", "idle", SubResource( 36 ), "SETUP", "idle", SubResource( 40 ) ]
 start_node = "SETUP"
 graph_offset = Vector2( -183, -49 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=40]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=38]
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2147483649
@@ -595,7 +595,7 @@ position = Vector2( 6.73477, -39.8474 )
 [node name="Sprite" type="Sprite" parent="Body"]
 position = Vector2( 0.890899, 0.890903 )
 scale = Vector2( 0.49, 0.49 )
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.48987, 1.68369 )
@@ -618,8 +618,8 @@ anims/walk_cycle = SubResource( 10 )
 anims/walk_end = SubResource( 11 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 39 )
+tree_root = SubResource( 37 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 40 )
+parameters/playback = SubResource( 38 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
