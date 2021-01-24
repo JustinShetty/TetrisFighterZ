@@ -620,5 +620,6 @@ anims/walk_end = SubResource( 11 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 37 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 22 )
+active = true
+parameters/playback = SubResource( 38 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
