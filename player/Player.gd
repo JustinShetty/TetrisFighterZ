@@ -1,10 +1,11 @@
 extends KinematicBody2D
 
 # state machine
-enum states{IDLE, CROUCH, WALK, WALK_END, 
+enum states{IDLE, CROUCH, WALK_START, WALK, WALK_END, 
 DASH_START, DASH, DASH_END, PUNCH}
 var state_to_str = {states.IDLE: 'IDLE',
-					states.CROUCH: 'WALK_START',
+					states.CROUCH: 'CROUCH',
+					states.WALK_START: 'WALK_START',
 					states.WALK: 'WALK',
 					states.WALK_END: 'WALK_END',
 					states.DASH_START: 'DASH_START',
@@ -97,6 +98,7 @@ func process_input() -> void:
 	var dash_ok = earliest_x_is_centered and latest_x_is_heavy and is_on_floor()
 	
 	var next_state = pstate
+	# x inputs
 	match pstate:
 		states.IDLE:
 			if dash_ok:
@@ -109,11 +111,11 @@ func process_input() -> void:
 		states.DASH:
 			if latest_x_is_light:
 				next_state = states.WALK
-		_:
-			print('unknown current state')
 	
 	if latest_x_is_centered:
 		next_state = states.IDLE
+		
+	# y
 		
 	if next_state != pstate:
 		set_state_and_animation(next_state)

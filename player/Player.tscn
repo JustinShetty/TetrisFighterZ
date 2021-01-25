@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/tpiece/tp_main.png" type="Texture" id=2]
@@ -945,8 +945,6 @@ graph_offset = Vector2( -181.089, -300.763 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=57]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=58]
-
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( -0.529724, -3.17838 )
 collision_layer = 2147483649
@@ -960,8 +958,7 @@ __meta__ = {
 position = Vector2( 6.73477, -39.8474 )
 
 [node name="Sprite" type="Sprite" parent="Body"]
-position = Vector2( 0.890899, 0.890903 )
-scale = Vector2( 0.49, 0.49 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -995,10 +992,4 @@ tree_root = SubResource( 56 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 57 )
-
-[node name="AnimationTree2" type="AnimationTree" parent="."]
-tree_root = SubResource( 56 )
-anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource( 58 )
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
