@@ -87,34 +87,32 @@ func process_input() -> void:
 	stick_buffer.pop_front()
 
 	# left/right
-	var earliest = stick_buffer.front().x
-	var latest = stick_buffer.back().x
-	var earliest_is_centered = earliest == 0
-	# var earliest_is_light = abs(earliest =) < H_INP_THRESHOLD and abs(earliest =) > 0
-	# var earliest_is_heavy = abs(earliest =) >= HEAVY_INP_THRESHOLD
-	var latest_is_centered = latest == 0
-	var latest_is_light = abs(latest) < HEAVY_INP_THRESHOLD and abs(latest) > 0
-	var latest_is_heavy = abs(latest) >= HEAVY_INP_THRESHOLD
+	var earliest_x = stick_buffer.front().x
+	var latest_x = stick_buffer.back().x
+	var earliest_x_is_centered = earliest_x == 0
+	var latest_x_is_centered = latest_x == 0
+	var latest_x_is_light = abs(latest_x) < HEAVY_INP_THRESHOLD and abs(latest_x) > 0
+	var latest_x_is_heavy = abs(latest_x) >= HEAVY_INP_THRESHOLD
 	
-	var dash_ok = earliest_is_centered and latest_is_heavy and is_on_floor()
+	var dash_ok = earliest_x_is_centered and latest_x_is_heavy and is_on_floor()
 	
 	var next_state = pstate
 	match pstate:
 		states.IDLE:
 			if dash_ok:
 				next_state = states.DASH
-			elif latest_is_light or latest_is_heavy:
+			elif latest_x_is_light or latest_x_is_heavy:
 				next_state = states.WALK
 		states.WALK:
 			if dash_ok:
 				next_state = states.DASH
 		states.DASH:
-			if latest_is_light:
+			if latest_x_is_light:
 				next_state = states.WALK
 		_:
 			print('unknown current state')
 	
-	if latest_is_centered:
+	if latest_x_is_centered:
 		next_state = states.IDLE
 		
 	if next_state != pstate:
