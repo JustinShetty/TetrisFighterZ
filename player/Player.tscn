@@ -736,7 +736,7 @@ animation = "WALK"
 animation = "WALK_END"
 
 [sub_resource type="AnimationNodeAnimation" id=25]
-animation = "IDLE"
+animation = "WALK_START"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
@@ -856,8 +856,8 @@ __meta__ = {
 position = Vector2( 6.73477, -39.8474 )
 
 [node name="Sprite" type="Sprite" parent="Body"]
-position = Vector2( 0.890899, 0.890903 )
-rotation = -0.0113234
+position = Vector2( -0.5, -2.5 )
+rotation = 0.033949
 scale = Vector2( 0.49, 0.49 )
 texture = ExtResource( 2 )
 
