@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/tpiece/tp_main.png" type="Texture" id=2]
@@ -60,6 +60,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 resource_name = "DASH"
 length = 0.500001
+loop = true
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/Sprite:position")
@@ -971,6 +972,8 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=69]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=70]
+
 [sub_resource type="AnimationNodeStateMachine" id=62]
 states/CROUCH/node = SubResource( 18 )
 states/CROUCH/position = Vector2( 18, 86 )
@@ -981,9 +984,9 @@ states/DASH_END/position = Vector2( 723, 358 )
 states/DASH_START/node = SubResource( 21 )
 states/DASH_START/position = Vector2( 897, 263 )
 states/GETUP/node = SubResource( 22 )
-states/GETUP/position = Vector2( 395, 86 )
+states/GETUP/position = Vector2( 397, 86 )
 states/IDLE/node = SubResource( 24 )
-states/IDLE/position = Vector2( 520, 204 )
+states/IDLE/position = Vector2( 525, 204 )
 "states/IDLE 2/node" = SubResource( 23 )
 "states/IDLE 2/position" = Vector2( 236, 86 )
 states/JUMP_IDLE/node = SubResource( 25 )
@@ -991,7 +994,7 @@ states/JUMP_IDLE/position = Vector2( 385.911, -123.03 )
 states/JUMP_LAND/node = SubResource( 26 )
 states/JUMP_LAND/position = Vector2( 385.911, -43 )
 states/JUMP_MIDAIR/node = SubResource( 28 )
-states/JUMP_MIDAIR/position = Vector2( 174.911, -129.03 )
+states/JUMP_MIDAIR/position = Vector2( 179.911, -129.03 )
 states/JUMP_SQUAT/node = SubResource( 29 )
 states/JUMP_SQUAT/position = Vector2( 174.911, -43 )
 states/PUNCH/node = SubResource( 31 )
@@ -1006,9 +1009,9 @@ states/WALK_END/node = SubResource( 34 )
 states/WALK_END/position = Vector2( 90, 334 )
 states/WALK_START/node = SubResource( 35 )
 states/WALK_START/position = Vector2( 525, 334 )
-transitions = [ "IDLE", "CROUCH", SubResource( 36 ), "GETUP", "IDLE", SubResource( 37 ), "IDLE", "PUNCH", SubResource( 38 ), "PUNCH", "IDLE", SubResource( 39 ), "CROUCH", "IDLE 2", SubResource( 40 ), "IDLE 2", "GETUP", SubResource( 41 ), "IDLE", "WALK_START", SubResource( 42 ), "WALK_START", "WALK", SubResource( 43 ), "WALK", "WALK_END", SubResource( 44 ), "WALK_END", "IDLE", SubResource( 45 ), "IDLE", "DASH_START", SubResource( 46 ), "DASH_START", "DASH", SubResource( 47 ), "DASH", "DASH_END", SubResource( 48 ), "DASH_END", "IDLE", SubResource( 49 ), "SETUP", "IDLE", SubResource( 50 ), "IDLE", "JUMP_SQUAT", SubResource( 51 ), "JUMP_SQUAT", "JUMP_MIDAIR", SubResource( 52 ), "JUMP_MIDAIR", "JUMP_IDLE", SubResource( 53 ), "IDLE 2", "JUMP_SQUAT", SubResource( 54 ), "JUMP_IDLE", "JUMP_LAND", SubResource( 55 ), "JUMP_LAND", "IDLE", SubResource( 56 ), "CROUCH", "JUMP_SQUAT", SubResource( 57 ), "JUMP_IDLE", "JUMP_MIDAIR", SubResource( 64 ), "JUMP_IDLE", "SLAP", SubResource( 67 ), "SLAP", "JUMP_IDLE", SubResource( 68 ), "JUMP_LAND", "CROUCH", SubResource( 69 ) ]
+transitions = [ "IDLE", "CROUCH", SubResource( 36 ), "GETUP", "IDLE", SubResource( 37 ), "IDLE", "PUNCH", SubResource( 38 ), "PUNCH", "IDLE", SubResource( 39 ), "CROUCH", "IDLE 2", SubResource( 40 ), "IDLE 2", "GETUP", SubResource( 41 ), "IDLE", "WALK_START", SubResource( 42 ), "WALK_START", "WALK", SubResource( 43 ), "WALK", "WALK_END", SubResource( 44 ), "WALK_END", "IDLE", SubResource( 45 ), "IDLE", "DASH_START", SubResource( 46 ), "DASH_START", "DASH", SubResource( 47 ), "DASH", "DASH_END", SubResource( 48 ), "DASH_END", "IDLE", SubResource( 49 ), "SETUP", "IDLE", SubResource( 50 ), "IDLE", "JUMP_SQUAT", SubResource( 51 ), "JUMP_SQUAT", "JUMP_MIDAIR", SubResource( 52 ), "JUMP_MIDAIR", "JUMP_IDLE", SubResource( 53 ), "IDLE 2", "JUMP_SQUAT", SubResource( 54 ), "JUMP_IDLE", "JUMP_LAND", SubResource( 55 ), "JUMP_LAND", "IDLE", SubResource( 56 ), "CROUCH", "JUMP_SQUAT", SubResource( 57 ), "JUMP_IDLE", "JUMP_MIDAIR", SubResource( 64 ), "JUMP_IDLE", "SLAP", SubResource( 67 ), "SLAP", "JUMP_IDLE", SubResource( 68 ), "JUMP_LAND", "CROUCH", SubResource( 69 ), "JUMP_LAND", "JUMP_SQUAT", SubResource( 70 ) ]
 start_node = "SETUP"
-graph_offset = Vector2( -181.089, 68.728 )
+graph_offset = Vector2( -181.089, -178.689 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=63]
 
@@ -1025,9 +1028,10 @@ __meta__ = {
 position = Vector2( 6.73477, -39.8474 )
 
 [node name="Sprite" type="Sprite" parent="Body"]
-position = Vector2( 0.890899, 0.890903 )
-scale = Vector2( 0.49, 0.49 )
-texture = ExtResource( 2 )
+position = Vector2( 2.98401, 32.8431 )
+rotation = -0.143188
+scale = Vector2( 0.45, 0.48 )
+texture = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.48987, 1.68369 )
